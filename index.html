@@ -14,11 +14,28 @@
                 justify-content:center;
                 align-items:center;
                 font-family: 'Poppins', sans-serif;
+                background-color: white;
+            }
+            #fullscreenbtn{
+                position: absolute;
+                top:0;
+                left:0;
+                z-index: 9;
+                background-color: #222;
+                color:white;
+                padding: 5px;
             }
             #topbanner{
                 background-color: #DDDDDD;
+                font-size: 20px;
                 width: 100%;
                 margin-bottom: 80px;
+                position: fixed;
+                top:0;
+            }
+            #content{
+                position: absolute;
+                top:150px;
             }
             #safeentrytop{
                 background-color: #1FAF71;
@@ -51,7 +68,7 @@
                 background-color: #DDDDDD;
                 width: 400px;
                 border-radius: 0 0 10px 10px;
-                line-height: 15px;
+                line-height: 25px;
                 font-size: 20px;
                 -webkit-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
                 -moz-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
@@ -88,17 +105,22 @@
         </style>
     </head>
     <body onload="updatetime()">
+        <div id="fullscreenbtn" onclick="requestFullScreen(document.body)">
+            Fullscreen
+        </div>
         <div id="topbanner">
             <b><p>SafeEntry</p></b>
         </div>
-        <div id="safeentrytop">
-            <img src="./green_checkmark.png" id="check-circle">
-            <img src="./checkin-success-page-icon.svg" id="safeentryentrylogo">
-        </div>
-        <div id="safeentrybottom">
-            <b><p id="place">REPUBLIC POLYTECHNIC (AGORA)</p>
-            <p id="date">23 OCT 2020</p>
-            <p id="time">12:13 PM</p></b>
+        <div id="content">
+            <div id="safeentrytop">
+                <img src="./green_checkmark.png" id="check-circle">
+                <img src="./checkin-success-page-icon.svg" id="safeentryentrylogo">
+            </div>
+            <div id="safeentrybottom">
+                <b><p id="place">REPUBLIC POLYTECHNIC (AGORA ENTRANCE)</p>
+                <p id="date">23 OCT 2020</p>
+                <p id="time">12:13 PM</p></b>
+            </div>
         </div>
         <div id="checkout">
             <b><p>CHECK OUT <img src="./checkout-icon.svg" id="checkout-icon"></p></b>
@@ -121,6 +143,20 @@
                     minute="0"+minute;
                 }
                 document.getElementById('time').innerHTML=hour+":"+minute+endtext;
+            }
+            function requestFullScreen(element) {
+                // Supports most browsers and their versions.
+                var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+                if (requestMethod) { // Native full screen.
+                    requestMethod.call(element);
+                } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                    var wscript = new ActiveXObject("WScript.Shell");
+                    if (wscript !== null) {
+                        wscript.SendKeys("{F11}");
+                    }
+                }
+                document.getElementById('fullscreenbtn').style.display="none";
             }
         </script>
     </body>
