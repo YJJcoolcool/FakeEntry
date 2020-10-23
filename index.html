@@ -3,9 +3,8 @@
     <head>
         <title>FakeEntry</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Free Web tutorials">
-        <meta name="keywords" content="HTML, CSS, JavaScript">
-        <meta name="author" content="John Doe">
+        <meta name="description" content="FOR EDUCATIONAL PURPOSES ONLY">
+        <meta name="author" content="YJJcoolcool">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
         <style>
@@ -41,10 +40,11 @@
             #disclaimer{
                 background-color: rgb(20,20,20);
                 color:white;
-                font-size: 20px;
+                font-size: 18px;
+                padding: 3px 0;
                 width: 100%;
                 position: absolute;
-                bottom:0;
+                bottom:-10px;
                 z-index: 9;
                 opacity: 0.8;
             }
@@ -141,7 +141,7 @@
         <div class="content">
             <div id="safeentrytop">
                 <img src="./green_checkmark.png" id="check-circle">
-                <img src="./checkin-success-page-icon.svg" id="safeentryentrylogo">
+                <img src="./checkin-success-page-icon.png" id="safeentryentrylogo">
             </div>
             <div id="safeentrybottom">
                 <b><p id="place">REPUBLIC POLYTECHNIC (AGORA)</p>
@@ -150,9 +150,10 @@
             </div>
         </div>
         <div id="checkout" onclick="checkout()">
-            <b><p>CHECK OUT <img src="./checkout-icon.svg" id="checkout-icon"></p></b>
+            <b><p>CHECK OUT <img src="./checkout-icon.png" id="checkout-icon"></p></b>
         </div>
         <script>
+            var page="checkin";
             const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
             function updatetime(){
                 var currenttime = new Date();
@@ -186,7 +187,20 @@
                 document.getElementById('fullscreenbtn').style.display="none";
             }
             function checkout(){
-
+                updatetime();
+                if (page=="checkin"){
+                    document.getElementById('safeentrytop').style.backgroundColor="#0070E0";
+                    document.getElementById('safeentryentrylogo').src="./checkout-success-page-icon.png";
+                    document.getElementById('check-circle').src="./blue_checkmark.png";
+                    document.getElementById('checkout').innerHTML='<b><p>CHECK IN <img src="./checkout-icon.png" id="checkout-icon"></p></b>';
+                    page="checkout"
+                } else {
+                    document.getElementById('safeentrytop').style.backgroundColor="#1FAF71";
+                    document.getElementById('safeentryentrylogo').src="./checkin-success-page-icon.png";
+                    document.getElementById('check-circle').src="./green_checkmark.png";
+                    document.getElementById('checkout').innerHTML='<b><p>CHECK OUT <img src="./checkout-icon.png" id="checkout-icon"></p></b>';
+                    page="checkin"
+                }
             }
         </script>
     </body>
