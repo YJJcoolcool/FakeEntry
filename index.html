@@ -38,7 +38,17 @@
                 position: fixed;
                 top:0;
             }
-            #content{
+            #disclaimer{
+                background-color: rgb(20,20,20);
+                color:white;
+                font-size: 20px;
+                width: 100%;
+                position: absolute;
+                bottom:0;
+                z-index: 9;
+                opacity: 0.8;
+            }
+            .content{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -94,7 +104,7 @@
                 border-radius: 200px;
                 border: 2px solid #0070E0;
                 color:#0070E0;
-                bottom: 50px;
+                bottom: 150px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -120,10 +130,15 @@
         <div id="fullscreenbtn" onclick="requestFullScreen(document.body)">
             Fullscreen
         </div>
+        <p id="disclaimer">
+            <b>THIS IS FOR EDUCATIONAL PURPOSES ONLY</b>
+            <br>
+            Any usage of this to fake the SafeEntry process at real locations is strongly discouraged. You can get in trouble with the law if you use this.
+        </p>
         <div id="topbanner">
             <b><p>SafeEntry</p></b>
         </div>
-        <div id="content">
+        <div class="content">
             <div id="safeentrytop">
                 <img src="./green_checkmark.png" id="check-circle">
                 <img src="./checkin-success-page-icon.svg" id="safeentryentrylogo">
@@ -134,7 +149,7 @@
                 <p id="time">12:13 PM</p></b>
             </div>
         </div>
-        <div id="checkout">
+        <div id="checkout" onclick="checkout()">
             <b><p>CHECK OUT <img src="./checkout-icon.svg" id="checkout-icon"></p></b>
         </div>
         <script>
@@ -169,6 +184,9 @@
                     }
                 }
                 document.getElementById('fullscreenbtn').style.display="none";
+            }
+            function checkout(){
+
             }
         </script>
     </body>
