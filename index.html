@@ -61,6 +61,7 @@
                 padding: 0 10px;
                 color: white;
                 max-width: 500px;
+                min-width: 300px;
                 width: 100%;
                 height: 80px;
                 border-radius: 10px 10px 0 0;
@@ -84,13 +85,24 @@
                 height: 25px;
                 padding:0 0 40px 0;
             }
+            #place{
+                font-family: 'Poppins', sans-serif;
+                font-weight: bold;
+                font-size: 20px;
+                width: 90%;
+                max-width: 400px;
+                max-height: 80px;
+                text-align: center;
+                background-color: #DDD;
+                border: none;
+            }
             #safeentrybottom{
                 padding: 10px;
-                background-color: #DDDDDD;
+                background-color: #DDD;
                 max-width: 500px;
                 width: 100%;
                 border-radius: 0 0 10px 10px;
-                line-height: 25px;
+                line-height: 0px;
                 font-size: 20px;
                 -webkit-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
                 -moz-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
@@ -144,7 +156,7 @@
                 <img src="./checkin-success-page-icon.png" id="safeentryentrylogo">
             </div>
             <div id="safeentrybottom">
-                <b><p id="place">REPUBLIC POLYTECHNIC (AGORA)</p>
+                <b><textarea type="text" id="place" placeholder="Click here to enter the place name"></textarea>
                 <p id="date">23 OCT 2020</p>
                 <p id="time">12:13 PM</p></b>
             </div>
@@ -155,6 +167,7 @@
         <script>
             var page="checkin";
             const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
             function updatetime(){
                 var currenttime = new Date();
                 document.getElementById('date').innerHTML=String(currenttime.getDate())+" "+String(monthNames[currenttime.getMonth()])+" "+currenttime.getFullYear();
@@ -202,6 +215,7 @@
                     page="checkin"
                 }
             }
+            
         </script>
     </body>
 </html>
