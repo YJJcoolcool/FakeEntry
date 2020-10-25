@@ -56,12 +56,20 @@
                 background-color: rgb(20,20,20);
                 color:white;
                 font-size: 17px;
-                padding: 5px 0;
+                padding: 20px 0;
                 width: 100%;
                 position: absolute;
-                bottom:0px;
+                bottom:10px;
                 z-index: 9;
-                opacity: 0.8;
+                opacity: 1;
+                transition: all 0.5s;
+            }
+            #disclaimer button{
+                font-weight: bold;
+                border-radius: 10px;
+                padding: 5px 10px;
+                margin-top: 10px;
+                outline: none;
             }
             .content{
                 display: flex;
@@ -69,7 +77,7 @@
                 align-items: center;
                 position: absolute;
                 top:120px;
-                padding: 0 50px;
+                padding: 0 40px;
             }
             #safeentrytop{
                 background-color: #1FAF71;
@@ -133,7 +141,7 @@
                 border-radius: 200px;
                 border: 2px solid #0070E0;
                 color:#0070E0;
-                top: 470px;
+                bottom: 50px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -164,8 +172,11 @@
         <p id="disclaimer">
             <b>THIS IS FOR ENTERTAINMENT PURPOSES ONLY</b>
             <br>
+            <br>
             Any usage of this to fake the SafeEntry process at real locations is strongly discouraged and
             <b style="color:#F33"> can get you in trouble with the law.</b>
+            <br>
+            <button onclick="closedisclaimer()">I acknowledge</button>
         </p>
         <div id="topbanner">
             <b><p>SafeEntry</p></b>
@@ -236,6 +247,13 @@
                     document.getElementById('checkout').innerHTML='<b><p>CHECK OUT <img src="./checkout-icon.png" id="checkout-icon"></p></b>';
                     page="checkin"
                 }
+            }
+            function closedisclaimer(){
+                document.getElementById('disclaimer').style.opacity="0";
+                setTimeout(function(){
+                    document.getElementById('disclaimer').style.display="none";
+                },2000)
+                
             }
             
         </script>
