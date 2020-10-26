@@ -166,6 +166,18 @@
             #time{
                 line-height: 50px;
             }
+            #acceptcookies{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top:0;
+                left:0;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: all 0.5s;
+            }
         </style>
     </head>
     <body onload="updatetime()">
@@ -197,6 +209,13 @@
         </div>
         <div id="checkout" onclick="checkout()">
             <b><p>CHECK OUT <img src="./checkout-icon.png" id="checkout-icon"></p></b>
+        </div>
+        <div id="acceptcookies">
+            <p>This website uses cookies to store the following information:</p>
+            <ul>
+                <li>The previous place you entered</li>
+            </ul>
+            <button onclick="setCookie('acceptcookies','true',30);this.style.opacity=0;setTimeout(function(){this.display='none'},1000)">Accept Cookies</button>
         </div>
         <script>
             var page="checkin";
@@ -281,11 +300,11 @@
                 return "";
             }
             var lastentry="";
-            try{
-                var lastentry = getCookie("lastentry");
-            } catch {
-                var lastentry = "";
+            if (getCookie("acceptcookies")=="true") {
+                document.getElementById("acceptcookies").style.display="flex";
+                document.getElementById("acceptcookies").style.opacity=1;
             }
+            var lastentry = getCookie("lastentry");
             document.getElementById('place').value=lastentry;
         </script>
     </body>
