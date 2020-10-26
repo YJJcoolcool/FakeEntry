@@ -219,7 +219,7 @@
             <ul>
                 <li>The previous place you entered</li>
             </ul>
-            <button onclick="setCookie('acceptcookies','true',30);this.parent.style.opacity=0;setTimeout(function(){this.parent.display='none'},1000)">Accept Cookies</button>
+            <button onclick="setCookie('acceptcookies','true',30);document.getElementById('acceptcookies').style.opacity=0;setTimeout(function(){document.getElementById('acceptcookies').display='none'},1000)">Accept Cookies</button>
         </div>
         <script>
             var page="checkin";
