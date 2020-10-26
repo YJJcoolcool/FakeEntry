@@ -190,7 +190,7 @@
                 <img src="./checkin-success-page-icon.png" id="safeentryentrylogo">
             </div>
             <div id="safeentrybottom">
-                <b><textarea type="text" id="place" placeholder="Click here to enter the place name" onkeyup="setCookie('lastentry',this.innerHTML,30);console.log(this.innerHTML);console.log('Called')"></textarea>
+                <b><textarea type="text" id="place" placeholder="Click here to enter the place name" onkeyup="setCookie('lastentry',this.value,30);"></textarea>
                 <p id="date">23 OCT 2020</p>
                 <p id="time">12:13 PM</p></b>
             </div>
@@ -259,12 +259,10 @@
                 
             }
             function setCookie(cname, cvalue, exdays) {
-                console.log("Setcookie");
                 var d = new Date();
                 d.setTime(d.getTime() + (exdays*24*60*60*1000));
                 var expires = "expires="+ d.toUTCString();
                 document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-                console.log(cname + "=" + cvalue + ";" + expires + ";path=/")
             }
             function getCookie(cname) {
                 var name = cname + "=";
