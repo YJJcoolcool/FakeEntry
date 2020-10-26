@@ -190,7 +190,7 @@
                 <img src="./checkin-success-page-icon.png" id="safeentryentrylogo">
             </div>
             <div id="safeentrybottom">
-                <b><textarea type="text" id="place" placeholder="Click here to enter the place name" onkeyup="setCookie('lastentry',this.innerHTML,30)"></textarea>
+                <b><textarea type="text" id="place" placeholder="Click here to enter the place name" onkeyup="setCookie('lastentry',this.innerHTML,30);console.log(this.innerHTML);console.log('Called')"></textarea>
                 <p id="date">23 OCT 2020</p>
                 <p id="time">12:13 PM</p></b>
             </div>
