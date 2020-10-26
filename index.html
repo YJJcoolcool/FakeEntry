@@ -300,7 +300,7 @@
                 return "";
             }
             var lastentry="";
-            if (getCookie("acceptcookies")=="true") {
+            if (getCookie("acceptcookies")!="true") {
                 document.getElementById("acceptcookies").style.display="flex";
                 document.getElementById("acceptcookies").style.opacity=1;
             }
