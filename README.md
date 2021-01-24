@@ -1,7 +1,7 @@
 # FakeEntry
 ## THIS IS FOR ENTERTAINMENT PURPOSES ONLY
 FakeEntry is a SafeEntry ripoff that generates a SafeEntry login/logout page to simulate a login/logout of SafeEntry.
-https://yjjcoolcool.github.io/fakeentry/
+https://yjjcoolcool.github.io/FakeEntry/
 
 ## DISCLAIMER
 ### This is a fake SafeEntry page that I made out of boredom.
