@@ -102,15 +102,15 @@
                 updatetime();
                 if (page=="checkin"){
                     document.getElementById('safeentrytop').style.backgroundColor="#0070E0";
-                    document.getElementById('safeentryentrylogo').src="./checkout-success-page-icon.png";
-                    document.getElementById('check-circle').src="./blue_checkmark.png";
-                    document.getElementById('checkout').innerHTML='<b><p>CHECK IN <img src="./checkout-icon.png" id="checkout-icon"></p></b>';
+                    document.getElementById('safeentryentrylogo').src="resources/checkout-success-page-icon.svg";
+                    document.getElementById('check-circle').src="resources/successpage-tickblue-icon.svg";
+                    document.getElementById('checkout').innerHTML='<b><p>CHECK IN <img src="resources/checkout-icon.png" id="checkout-icon"></p></b>';
                     page="checkout"
                 } else {
                     document.getElementById('safeentrytop').style.backgroundColor="#1FAF71";
-                    document.getElementById('safeentryentrylogo').src="./checkin-success-page-icon.png";
-                    document.getElementById('check-circle').src="./green_checkmark.png";
-                    document.getElementById('checkout').innerHTML='<b><p>CHECK OUT <img src="./checkout-icon.png" id="checkout-icon"></p></b>';
+                    document.getElementById('safeentryentrylogo').src="resources/checkin-success-page-icon.svg";
+                    document.getElementById('check-circle').src="resources/successpage-tickgreen-icon.svg";
+                    document.getElementById('checkout').innerHTML='<b><p>CHECK OUT <img src="resources/checkout-icon.png" id="checkout-icon"></p></b>';
                     page="checkin"
                 }
             }
