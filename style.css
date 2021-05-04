@@ -1,0 +1,217 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+}
+p {
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+#fullscreenbtn{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 9;
+    background-color: #222;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+}
+#topbanner{
+    background-color: #EEEEEE;
+    font-size: 20px;
+    width: 180%;
+    margin-bottom: 30px;
+    position: fixed;
+    height:80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    top:-25px;
+    left:-40%;
+    border-bottom-left-radius:50%;
+    border-bottom-right-radius:50%;
+}
+#disclaimer{
+    background-color: rgb(20,20,20);
+    color:white;
+    font-size: 17px;
+    padding: 20px 0;
+    width: 100%;
+    position: absolute;
+    bottom:10px;
+    z-index: 9;
+    opacity: 1;
+    transition: all 0.5s;
+}
+#disclaimer button{
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    outline: none;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top:80px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+#safeentrybanner{
+    width: 50%;
+}
+#safeentrytop{
+    background-color: #1FAF71;
+    padding: 0 10px;
+    color: white;
+    max-width: 400px;
+    width: 90%;
+    height: 80px;
+    z-index: 5;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+    box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+    margin-top: 10%;
+}
+#check-circle{
+    position: relative;
+    border: 2px solid white;
+    border-radius: 100px;
+    width: 20%;
+    background-color: white;
+    bottom: 14px;
+}
+#safeentryentrylogo{
+    height: 25px;
+    padding: 0 8px 18px 8px;
+}
+#tracetogetherwatermark{
+    opacity: 0.25;
+    position: relative;
+    z-index: 6;
+    width: 40%;
+    top: -320px;
+    margin-bottom: -250px;
+}
+#safeentrybottom{
+    padding: 10px;
+    background-color: #EEE;
+    max-width: 400px;
+    width: 90%;
+    z-index: 5;
+    border-radius: 0 0 10px 10px;
+    line-height: 0px;
+    font-size: 20px;
+    -webkit-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+    box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+}
+#checkout{
+    font-size: 20px;
+    position: absolute;
+    width: 80%;
+    max-width: 350px;
+    height: 40px;
+    border-radius: 200px;
+    border: 1.5px solid #0070E0;
+    color:#0070E0;
+    bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 0px 10px 26px -15px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 10px 26px -15px rgba(0,0,0,0.36);
+    box-shadow: 0px 10px 26px -15px rgba(0,0,0,0.36);
+    padding-left: 20px;
+    margin: 0 40px;
+}
+#checkout-icon{
+    position: relative;
+    margin-left: 40px;
+    height: 23px;
+    bottom: -4px;
+}
+#date,#time{
+    position: relative;
+    font-size: 37px;
+    line-height:22px;
+    z-index: 7;
+}
+#time{
+    line-height: 50px;
+}
+#place{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    width: 90%;
+    line-height: 25px;
+    max-width: 400px;
+    min-width: 200px;
+    max-height: 75px;
+    text-align: center;
+    background: none;
+    border: none;
+    position: relative;
+    outline: none;
+    z-index: 7;
+    margin-bottom: 15px;
+}
+#acceptcookies{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s;
+    background-color: #111;
+    color:white;
+    z-index: 99;
+}
+@media (max-width:450px){
+    #safeentrybottom{
+        padding: 10px 0;
+    }
+    #date,#time{
+        font-size: 25px;
+        line-height:25px;
+    }
+    #place{
+        font-size: 18px;
+    }
+    #checkout{
+        font-size: 17px;
+        height: 40px;
+    }
+    #checkout-icon{
+        position: relative;
+        margin-left: 40px;
+        height: 20px;
+        bottom: -4px;
+    }
+}

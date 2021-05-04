@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FakeEntry (SafeEntry replica)</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="FOR ENTERTAINMENT PURPOSES ONLY. A fake replica of SafeEntry log in page. Includes a Log In / Log Out screen, and customisable place name.">
+        <meta name="author" content="YJJcoolcool">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="3uaYMulTU7yev8VLc2jwH_CYox_fB8Tk4yoRYMvBTz8" />
+        <link rel="icon" type="image/x-icon" href="../resources/favicon.ico">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <style>
+            html,body{
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content:center;
+                align-items:center;
+                font-family: 'Poppins', sans-serif;
+                background-color: white;
+            }
+            p {
+                margin-block-start: 0.5em;
+                margin-block-end: 0.5em;
+                margin-inline-start: 0px;
+                margin-inline-end: 0px;
+            }
+            #fullscreenbtn{
+                position: absolute;
+                top:0;
+                left:0;
+                z-index: 9;
+                background-color: #222;
+                color:white;
+                padding: 5px;
+            }
+            #topbanner{
+                background-color: #EEEEEE;
+                font-size: 20px;
+                width: 180%;
+                margin-bottom: 80px;
+                position: fixed;
+                height:80px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                top:-25px;
+                left:-40%;
+                border-bottom-left-radius:50%;
+                border-bottom-right-radius:50%;
+            }
+            #disclaimer{
+                background-color: rgb(20,20,20);
+                color:white;
+                font-size: 17px;
+                padding: 20px 0;
+                width: 100%;
+                position: absolute;
+                bottom:10px;
+                z-index: 9;
+                opacity: 1;
+                transition: all 0.5s;
+            }
+            #disclaimer button{
+                font-weight: bold;
+                border-radius: 10px;
+                padding: 5px 10px;
+                margin-top: 10px;
+                outline: none;
+            }
+            .content{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top:120px;
+                padding: 0 40px;
+            }
+            #safeentrytop{
+                background-color: #1FAF71;
+                padding: 0 10px;
+                color: white;
+                max-width: 500px;
+                min-width: 300px;
+                width: 100%;
+                height: 80px;
+                z-index: 5;
+                border-radius: 10px 10px 0 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                -webkit-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+                -moz-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+                box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+            }
+            #check-circle{
+                position: relative;
+                border: 2px solid white;
+                border-radius: 500px;
+                width: 50px;
+                background-color: white;
+                bottom: 8px;
+            }
+            #safeentryentrylogo{
+                height: 25px;
+                padding:0 0 40px 0;
+            }
+            #place{
+                font-family: 'Poppins', sans-serif;
+                font-weight: bold;
+                font-size: 20px;
+                width: 90%;
+                line-height: 25px;
+                max-width: 400px;
+                min-width: 200px;
+                max-height: 75px;
+                text-align: center;
+                background: none;
+                border: none;
+            }
+            #safeentrybottom{
+                padding: 10px;
+                background-color: #EEE;
+                max-width: 500px;
+                width: 100%;
+                z-index: 5;
+                border-radius: 0 0 10px 10px;
+                line-height: 0px;
+                font-size: 20px;
+                -webkit-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+                -moz-box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+                box-shadow: 0px 10px 26px -8px rgba(0,0,0,0.36);
+            }
+            #checkout{
+                font-size: 20px;
+                position: absolute;
+                min-width:350px;
+                height: 40px;
+                border-radius: 200px;
+                border: 2px solid #0070E0;
+                color:#0070E0;
+                bottom: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                -webkit-box-shadow: 0px 10px 26px -15px rgba(0,0,0,0.36);
+                -moz-box-shadow: 0px 10px 26px -15px rgba(0,0,0,0.36);
+                box-shadow: 0px 10px 26px -15px rgba(0,0,0,0.36);
+                padding-left: 20px;
+                margin: 0 40px;
+            }
+            #checkout-icon{
+                position: relative;
+                margin-left: 40px;
+                height: 23px;
+                bottom: -4px;
+            }
+            #date,#time{
+                font-size: 37px;
+                line-height:20px;
+            }
+            #time{
+                line-height: 50px;
+            }
+            #acceptcookies{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top:0;
+                left:0;
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: all 0.5s;
+                background-color: #111;
+                color:white;
+                z-index: 99;
+            }
+        </style>
+    </head>
+    <body onload="updatetime()">
+        <div id="fullscreenbtn" onclick="requestFullScreen(document.body)">
+            Fullscreen
+        </div>
+        <p id="disclaimer">
+            <b>THIS IS FOR ENTERTAINMENT PURPOSES ONLY</b>
+            <br>
+            <br>
+            Any usage of this to fake the SafeEntry process at real locations is strongly discouraged and
+            <b style="color:#F33"> can get you in trouble with the law.</b>
+            <br>
+            <button onclick="closedisclaimer()">I acknowledge</button>
+        </p>
+        <div id="topbanner">
+            <b><p>SafeEntry</p></b>
+        </div>
+        <div class="content">
+            <div id="safeentrytop">
+                <img src="../resources/green_checkmark.png" id="check-circle">
+                <img src="../resources/checkin-success-page-icon.png" id="safeentryentrylogo">
+            </div>
+            <div id="safeentrybottom">
+                <b><textarea type="text" id="place" placeholder="Click here to enter the place name" onkeyup="setCookie('lastentry',this.value,30);"></textarea>
+                <p id="date">23 OCT 2020</p>
+                <p id="time">12:13 PM</p></b>
+            </div>
+        </div>
+        <div id="checkout" onclick="checkout()">
+            <b><p>CHECK OUT <img src="../resources/checkout-icon.png" id="checkout-icon"></p></b>
+        </div>
+        <div id="acceptcookies">
+            <p>This website uses cookies to store the following information:</p>
+            <ul>
+                <li>The previous place you entered</li>
+            </ul>
+            <button onclick="setCookie('acceptcookies','true',30);document.getElementById('acceptcookies').style.opacity=0;setTimeout(function(){document.getElementById('acceptcookies').style.display='none'},1000)">Accept Cookies</button>
+        </div>
+        <script>
+            var page="checkin";
+            const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+            function updatetime(){
+                var currenttime = new Date();
+                document.getElementById('date').innerHTML=String(currenttime.getDate())+" "+String(monthNames[currenttime.getMonth()])+" "+currenttime.getFullYear();
+                var hour = currenttime.getHours();
+                var minute = currenttime.getMinutes();
+                var endtext = " AM";
+                if (hour>=12) {
+                    endtext=" PM";
+                    if (hour>12){
+                        hour-=12
+                    }
+                } else if (hour<1){
+                    hour=12;
+                }
+                if (minute<10){
+                    minute="0"+minute;
+                }
+                document.getElementById('time').innerHTML=hour+":"+minute+endtext;
+            }
+            function requestFullScreen(element) {
+                // Supports most browsers and their versions.
+                var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+                if (requestMethod) { // Native full screen.
+                    requestMethod.call(element);
+                } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+                    var wscript = new ActiveXObject("WScript.Shell");
+                    if (wscript !== null) {
+                        wscript.SendKeys("{F11}");
+                    }
+                }
+                document.getElementById('fullscreenbtn').style.display="none";
+            }
+            function checkout(){
+                updatetime();
+                if (page=="checkin"){
+                    document.getElementById('safeentrytop').style.backgroundColor="#0070E0";
+                    document.getElementById('safeentryentrylogo').src="./checkout-success-page-icon.png";
+                    document.getElementById('check-circle').src="./blue_checkmark.png";
+                    document.getElementById('checkout').innerHTML='<b><p>CHECK IN <img src="./checkout-icon.png" id="checkout-icon"></p></b>';
+                    page="checkout"
+                } else {
+                    document.getElementById('safeentrytop').style.backgroundColor="#1FAF71";
+                    document.getElementById('safeentryentrylogo').src="./checkin-success-page-icon.png";
+                    document.getElementById('check-circle').src="./green_checkmark.png";
+                    document.getElementById('checkout').innerHTML='<b><p>CHECK OUT <img src="./checkout-icon.png" id="checkout-icon"></p></b>';
+                    page="checkin"
+                }
+            }
+            function closedisclaimer(){
+                document.getElementById('disclaimer').style.opacity="0";
+                setTimeout(function(){
+                    document.getElementById('disclaimer').style.display="none";
+                },1000)
+                
+            }
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays*24*60*60*1000));
+                var expires = "expires="+ d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                console.log(decodedCookie)
+                var ca = decodedCookie.split(';');
+                for(var i = 0; i <ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            var lastentry="";
+            if (getCookie("acceptcookies")!="true") {
+                document.getElementById("acceptcookies").style.display="flex";
+                document.getElementById("acceptcookies").style.opacity=0.95;
+            }
+            var lastentry = getCookie("lastentry");
+            document.getElementById('place').value=lastentry;
+        </script>
+    </body>
+</html>
