@@ -7,8 +7,11 @@
         <meta name="author" content="YJJcoolcool">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="3uaYMulTU7yev8VLc2jwH_CYox_fB8Tk4yoRYMvBTz8" />
-        <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="../resources/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
     <body onload="updatetime()">
@@ -34,25 +37,27 @@
             <br>
             <button onclick="closedisclaimer()" autofocus>I acknowledge</button>
         </p>
-        <div id="topbanner">
-            <b><p>SafeEntry</p></b>
+        <div id="ottertop">
+
         </div>
         <div class="content">
-            <img src="resources/safe_entry_banner.svg" width="220" height="44" id="safeentrybanner">
+            <!--<img src="../resources/safe_entry_banner.svg" width="220" height="44" id="safeentrybanner">-->
             <div id="safeentrytop">
-                <img src="resources/successpage-tickgreen-icon.svg" id="check-circle">
-                <img src="resources/checkin-success-page-icon.svg" id="safeentryentrylogo">
+                <img src="../resources/successpage-tickgreen-icon.svg" id="check-circle">
+                <img src="../resources/checkin-success-page-icon.svg" id="safeentryentrylogo">
             </div>
             <div id="safeentrybottom">
-                <b><p id="date">23 Oct 2020</p>
-                <p id="time">12:13 PM</p>
+                <b><p id="date">23 Oct, </p>
+                <!--<p id="time">12:13 PM</p>-->
                 <textarea type="text" id="place" placeholder="Click here to enter the place name" onkeyup="setCookie('lastentry',this.value,30);"></textarea></b>
-                <img src="resources/govtech-icon.svg" id="safeentryentrylogo"><br>
-                <img src="resources/tracetogetherlogo.png" id="tracetogetherwatermark">
+                <img src="../resources/govtech-icon.svg" id="govtech"><br>
+                <img src="../resources/tracetogetherlogo.png" id="tracetogetherwatermark">
             </div>
+            <br>
+            <p>This location is in your Favourites</p>
         </div>
         <div id="checkout" onclick="checkout()">
-            <b><p>CHECK OUT <img src="resources/checkout-icon.png" id="checkout-icon"></p></b>
+            <p>BACK TO HOME</p>
         </div>
         <div id="acceptcookies">
             <p>This website uses cookies to store the following information:</p>
@@ -67,7 +72,7 @@
 
             function updatetime(){
                 var currenttime = new Date();
-                document.getElementById('date').innerHTML=String(currenttime.getDate())+" "+String(monthNames[currenttime.getMonth()])+" "+currenttime.getFullYear();
+                document.getElementById('date').innerHTML=String(currenttime.getDate())+" "+String(monthNames[currenttime.getMonth()])+", ";
                 var hour = currenttime.getHours();
                 var minute = currenttime.getMinutes();
                 var endtext = " AM";
@@ -82,7 +87,7 @@
                 if (minute<10){
                     minute="0"+minute;
                 }
-                document.getElementById('time').innerHTML=hour+":"+minute+endtext;
+                document.getElementById('date').innerHTML+=hour+":"+minute+endtext;
             }
             function requestFullScreen(element) {
                 // Supports most browsers and their versions.
@@ -102,15 +107,15 @@
                 updatetime();
                 if (page=="checkin"){
                     document.getElementById('safeentrytop').style.backgroundColor="#0070E0";
-                    document.getElementById('safeentryentrylogo').src="resources/checkout-success-page-icon.svg";
-                    document.getElementById('check-circle').src="resources/successpage-tickblue-icon.svg";
-                    document.getElementById('checkout').innerHTML='<b><p>CHECK IN <img src="resources/checkout-icon.png" id="checkout-icon"></p></b>';
+                    document.getElementById('safeentryentrylogo').src="../resources/checkout-success-page-icon.svg";
+                    document.getElementById('check-circle').src="../resources/successpage-tickblue-icon.svg";
+                    document.getElementById('checkout').innerHTML='<b><p>CHECK IN <img src="../resources/checkout-icon.png" id="checkout-icon"></p></b>';
                     page="checkout"
                 } else {
                     document.getElementById('safeentrytop').style.backgroundColor="#1FAF71";
-                    document.getElementById('safeentryentrylogo').src="resources/checkin-success-page-icon.svg";
-                    document.getElementById('check-circle').src="resources/successpage-tickgreen-icon.svg";
-                    document.getElementById('checkout').innerHTML='<b><p>CHECK OUT <img src="resources/checkout-icon.png" id="checkout-icon"></p></b>';
+                    document.getElementById('safeentryentrylogo').src="../resources/checkin-success-page-icon.svg";
+                    document.getElementById('check-circle').src="../resources/successpage-tickgreen-icon.svg";
+                    document.getElementById('checkout').innerHTML='<b><p>CHECK OUT <img src="../resources/checkout-icon.png" id="checkout-icon"></p></b>';
                     page="checkin"
                 }
             }
