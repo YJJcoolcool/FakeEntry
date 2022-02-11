@@ -75,6 +75,10 @@
             var page="checkin";
             const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+            //Prevent rotation on mobile
+            screen.orientation.lock();
+            screen.lockOrientation("portrait");
+
             function updatetime(){
                 var currenttime = new Date();
                 document.getElementById('date').innerHTML=String(currenttime.getDate())+" "+String(monthNames[currenttime.getMonth()])+", ";
