@@ -65,6 +65,12 @@ p {
     width: 100%;
     position: absolute;
     top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+lottie-player{
+    max-width: 500px;
 }
 .content{
     display: flex;

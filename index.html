@@ -76,7 +76,7 @@
             const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
             //Prevent rotation on mobile
-            screen.orientation.lock();
+            screen.orientation.lock("portrait");
             screen.lockOrientation("portrait");
 
             function updatetime(){
